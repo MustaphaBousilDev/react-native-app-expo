@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
@@ -17,8 +18,14 @@ export default function TabNavigator() {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
-          } else if (route.name === 'Explore') {
-            iconName = focused ? 'search' : 'search-outline';
+          } else if (route.name === 'Notification') {
+            iconName = focused ? 'notifications' : 'notifications-outline';
+          }
+          else if (route.name === 'Setting') {
+            iconName = focused ? 'settings' : 'settings-outline';
+          }
+          else if (route.name === 'Bookmark') {
+            iconName = focused ? 'bookmark' : 'bookmark-outline';
           }
           
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -29,6 +36,9 @@ export default function TabNavigator() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Notification" component={ProfileScreen} />
+      <Tab.Screen name="Setting" component={ProfileScreen} />
+      <Tab.Screen name="Bookmark" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
