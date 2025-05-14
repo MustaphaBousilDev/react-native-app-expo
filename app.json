@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-app-expo",
-    "slug": "react-native-app-expo",
+    "name": "CarRentalApp",
+    "slug": "rcar-rental-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,7 +9,10 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -23,6 +26,11 @@
       "output": "expo",
       "favicon": "./assets/images/favicon.png"
     },
+    "locales": {
+      "en": "./src/i18n/expo-locales/en.json",
+      "fr": "./src/i18n/expo-locales/fr.json",
+      "ar": "./src/i18n/expo-locales/ar.json"
+    },
     "plugins": [
       [
         "expo-splash-screen",
@@ -32,7 +40,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true

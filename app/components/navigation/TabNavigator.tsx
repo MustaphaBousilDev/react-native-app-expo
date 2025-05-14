@@ -1,8 +1,8 @@
 // app/navigation/TabNavigator.tsx
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import HomeScreen from '../../screens/HomeScreen';
+import ProfileScreen from '../../screens/ProfileScreen';
 
 
 const Tab = createBottomTabNavigator();
