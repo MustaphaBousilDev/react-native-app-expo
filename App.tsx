@@ -1,15 +1,67 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { useState } from 'react';
+import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useState } from 'react';
+import { I18nextProvider } from 'react-i18next';
 import 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { CustomSplashScreen } from './app/components/common/SplashScreen';
 import TabNavigator from './app/components/navigation/TabNavigator';
+import i18n from './app/i18n';
 
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [isLoadingComplete, setLoadingComplete] = useState(false)
-  
+  const [showCustomSplash, setShowCustomSplash] = useState(true);
+  useEffect(() => {
+    async function loadResourcesAndData() {
+      try {
+        // Hide the native splash screen immediately
+        await SplashScreen.hideAsync();
+
+        // Simulate minimum loading time for splash screen
+        const minimumLoadingTime = new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Load resources in parallel
+        await Promise.all([
+          Font.loadAsync({
+            'SpaceMono-Regular': require('./assets/fonts/SpaceMono-Regular.ttf'),
+          }),
+          i18n.init(),
+          minimumLoadingTime, // Ensure splash shows for at least 2 seconds
+        ]);
+
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Add a fade-out transition
+        setTimeout(() => {
+          setShowCustomSplash(false);
+          setLoadingComplete(true);
+        }, 500);
+      }
+    }
+
+    loadResourcesAndData();
+  }, []);
+  if (showCustomSplash) {
+    return <CustomSplashScreen />;
+  }
+  if (!isLoadingComplete) {
+    return null;
+  }
+
   return (
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
+    <I18nextProvider i18n={i18n}>
+      <SafeAreaProvider>
+        <StatusBar style="auto" />
+        <NavigationContainer>
+          <TabNavigator />
+        </NavigationContainer> 
+      </SafeAreaProvider>
+    </I18nextProvider>
   );
 }
