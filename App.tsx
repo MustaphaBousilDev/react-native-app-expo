@@ -14,7 +14,7 @@ import i18n from './app/i18n';
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
-export default function App() {
+function App() {
   const [isLoadingComplete, setLoadingComplete] = useState(false)
   const [showCustomSplash, setShowCustomSplash] = useState(true);
   useEffect(() => {
@@ -71,3 +71,5 @@ export default function App() {
     </I18nextProvider>
   );
 }
+
+export default  App;

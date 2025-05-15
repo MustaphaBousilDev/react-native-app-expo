@@ -1,0 +1,16 @@
+node_modules
+.expo
+.expo-shared
+dist
+.git
+.gitignore
+README.md
+.env.local
+.env.*.local
+.DS_Store
+*.log
+coverage
+.jest
+__tests__
+ios/
+android/

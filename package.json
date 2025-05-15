@@ -8,7 +8,12 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "docker:dev": "docker-compose up expo-dev",
+    "docker:test": "docker-compose up expo-test",
+    "docker:build": "docker-compose up expo-build",
+    "docker:down": "docker-compose down",
+    "docker:clean": "docker-compose down -v"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",

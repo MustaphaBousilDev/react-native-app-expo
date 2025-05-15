@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  expo-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: car-rental-expo
+    ports:
+      - "19000:19000"
+      - "19001:19001"
+      - "19002:19002"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - expo-cache:/root/.expo
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=localhost
+    command: npx expo start --clear
+    stdin_open: true
+    tty: true
+  # For running tests
+  expo-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: car-rental-tests
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: yarn test
+  # For building production
+  expo-build:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: car-rental-build
+    volumes:
+      - ./dist:/app/dist
+    environment:
+      - EAS_BUILD_PLATFORM=all
+      - EAS_BUILD_PROFILE=production
+  # Production web build with Nginx
+  web-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+  # Nginx as a reverse proxy (alternative setup)
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf:ro
+      - ./dist:/usr/share/nginx/html:ro
+    depends_on:
+      - expo-dev
+    restart: unless-stopped
+volumes:
+  expo-cache:

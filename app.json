@@ -27,9 +27,9 @@
       "favicon": "./assets/images/favicon.png"
     },
     "locales": {
-      "en": "./src/i18n/expo-locales/en.json",
-      "fr": "./src/i18n/expo-locales/fr.json",
-      "ar": "./src/i18n/expo-locales/ar.json"
+      "en": "./app/i18n/expo-locales/en.json",
+      "fr": "./app/i18n/expo-locales/fr.json",
+      "ar": "./app/i18n/expo-locales/ar.json"
     },
     "plugins": [
       [
