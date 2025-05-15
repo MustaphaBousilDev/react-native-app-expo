@@ -1,4 +1,21 @@
 {
-  "name": "Location de Voitures",
-  "description": "Louez des voitures facilement avec notre application mobile"
+  "common": {
+    "welcome": "Bienvenue",
+    "language": "Langue",
+    "languageName": "Français",
+    "languageChange": "Changement de langue",
+    "rtlChangeMessage": "Le passage à l'arabe rechargera l'application pour appliquer la mise en page de droite à gauche. Continuer?",
+    "ltrChangeMessage": "Le passage de l'arabe rechargera l'application pour appliquer la mise en page de gauche à droite. Continuer?",
+    "cancel": "Annuler",
+    "confirm": "Confirmer"
+  },
+  "home": {
+    "description": "Ceci est l'écran d'accueil où vous pouvez tester les fonctionnalités d'internationalisation",
+    "features": "Fonctionnalités",
+    "feature1": "Fonctionnalité 1",
+    "feature2": "Fonctionnalité 2",
+    "fontTest": "Test de police",
+    "currentLanguage": "Langue actuelle",
+    "selectedLanguage": "Vous avez sélectionné: {{language}}"
+  }
 }

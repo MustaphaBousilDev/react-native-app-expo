@@ -30,6 +30,7 @@ export default function App() {
         await Promise.all([
           Font.loadAsync({
             'SpaceMono-Regular': require('./assets/fonts/SpaceMono-Regular.ttf'),
+            'PlaypenSansArabic-VariableFont_wght': require('./assets/fonts/PlaypenSansArabic-VariableFont_wght.ttf'),
           }),
           i18n.init(),
           minimumLoadingTime, // Ensure splash shows for at least 2 seconds

@@ -1,4 +1,21 @@
 {
-  "name": "Car Rental",
-  "description": "Rent cars easily with our mobile app"
+  "common": {
+    "welcome": "Welcome",
+    "language": "Language",
+    "languageName": "English",
+    "languageChange": "Language Change",
+    "rtlChangeMessage": "Changing to Arabic will reload the app to apply right-to-left layout. Continue?",
+    "ltrChangeMessage": "Changing from Arabic will reload the app to apply left-to-right layout. Continue?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "home": {
+    "description": "This is the home screen where you can test internationalization features",
+    "features": "Features",
+    "feature1": "Feature 1",
+    "feature2": "Feature 2",
+    "fontTest": "Font Test",
+    "currentLanguage": "Current Language",
+    "selectedLanguage": "You have selected: {{language}}"
+  }
 }
