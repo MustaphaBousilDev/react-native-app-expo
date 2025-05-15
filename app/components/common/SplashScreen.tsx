@@ -60,7 +60,6 @@ export const CustomSplashScreen = () => {
       style={styles.container}
     >
       <StatusBar style="light" />
-      
       <Animated.View
         style={[
           styles.logoContainer,

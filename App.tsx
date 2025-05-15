@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { I18nextProvider } from 'react-i18next';
+import { ActivityIndicator, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CustomSplashScreen } from './app/components/common/SplashScreen';
@@ -51,7 +52,11 @@ export default function App() {
     return <CustomSplashScreen />;
   }
   if (!isLoadingComplete) {
-    return null;
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
   }
 
   return (
