@@ -4,5 +4,8 @@
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
   },
-  "DockerRun.DisableDockerrc": true
+  "DockerRun.DisableDockerrc": true,
+  "i18n-ally.localesPaths": [
+    "app/i18n"
+  ]
 }
