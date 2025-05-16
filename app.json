@@ -16,6 +16,7 @@
       "bundleIdentifier": "com.carrentalios",
       "googleServicesFile": "./GoogleService-Info.plist"
     },
+    
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",

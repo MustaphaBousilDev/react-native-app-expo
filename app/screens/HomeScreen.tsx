@@ -1,31 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import RTLView from '../components/common/RTLView';
 import LanguageSelector from '../components/common/select/LanguageSelect';
 import { useLocalizedStyles } from '../hooks/useLocalizedStyles';
-import { firestore } from '../config/firebase.config';
-import { collection , getDocs} from 'firebase/firestore'
 
 export default function HomeScreen() {
   const { t } = useTranslation();
   const localizedStyles = useLocalizedStyles();
-   useEffect(() => {
-    const test = async () => {
-      try {
-        const testCollection = collection(firestore, 'test_collection');
-        const snapshot = await getDocs(testCollection);
-        console.log('Firebase connection successful!');
-        console.log('Documents in collection:', snapshot.size);
-        alert('Firebase connection successful!');
-      } catch (error) {
-        console.error('Firebase connection error:', error);
-        alert('Firebase connection failed: ' + error.message);
-      }
-    }
-    test();
-   },[])
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -124,5 +108,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     borderRadius: 8,
     alignItems: 'center',
+  },
+  statusRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
   },
 });
