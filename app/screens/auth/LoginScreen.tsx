@@ -9,7 +9,6 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  Image,
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -19,7 +18,24 @@ import { useTranslation } from 'react-i18next';
 import { useLocalizedStyles } from '@/app/hooks/useLocalizedStyles';
 import { auth } from '@/app/config/firebase.config';
 
-export default function LoginScreen({ navigation }) {
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
+
+type AuthStackParamList = {
+  Login: undefined;
+  Register: undefined;
+  ForgotPassword: undefined;
+};
+
+type LoginScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
+type LoginScreenRouteProp = RouteProp<AuthStackParamList, 'Login'>;
+
+type Props = {
+  navigation: LoginScreenNavigationProp;
+  route: LoginScreenRouteProp;
+};
+
+export default function LoginScreen({ navigation }: Props) {
     const { t } = useTranslation();
     const localizedStyles = useLocalizedStyles();
 

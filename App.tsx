@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -8,7 +8,7 @@ import { ActivityIndicator, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CustomSplashScreen } from './app/components/common/SplashScreen';
-import TabNavigator from './app/components/navigation/TabNavigator';
+import AppNavigator from './app/components/navigation/AppNavigator';
 import i18n from './app/i18n';
 
 // Keep the splash screen visible while we fetch resources
@@ -64,9 +64,7 @@ function App() {
     <I18nextProvider i18n={i18n}>
       <SafeAreaProvider>
         <StatusBar style="auto" />
-        <NavigationContainer>
-          <TabNavigator />
-        </NavigationContainer> 
+          <AppNavigator/>
       </SafeAreaProvider>
     </I18nextProvider>
   );
