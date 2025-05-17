@@ -1,0 +1,60 @@
+# Git
+.git
+.gitignore
+.github
+
+# Node
+node_modules
+npm-debug.log
+npm-error.log
+
+# Expo
+.expo
+.expo-shared
+web-build
+dist
+build
+
+# Environment
+.env
+.env.local
+.env.*
+!.env.template
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Test files
+__tests__
+coverage
+
+# Android/iOS specific
+android
+ios
+*.keystore
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+
+# Native build files
+google-services.json
+GoogleService-Info.plist
+
+# Documentation
+docs
+README.md
+CHANGELOG.md
+LICENSE
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore

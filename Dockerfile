@@ -8,7 +8,7 @@ RUN npm install -g expo-cli eas-cli
 
 COPY package.json package-lock.json* ./
 
-RUN npm ci
+RUN npm ci --force
 
 COPY . .
 
