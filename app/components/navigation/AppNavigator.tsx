@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react';
 import LoginScreen from '@/app/screens/auth/LoginScreen';
 import LoadingScreen from '../common/LoadingScreen';
 import TabNavigator from './TabNavigator';
+import RegisterScreen from '@/app/screens/auth/RegisterScreen';
+import ForgotPasswordScreen from '@/app/screens/auth/ForgotPasswordScreen';
 
 const Stack = createStackNavigator()
 
@@ -15,6 +17,8 @@ const AuthStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         </Stack.Navigator>
     )
 }
